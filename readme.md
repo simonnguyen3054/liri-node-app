@@ -3,15 +3,19 @@
 ## How to use LIRI commands to get songs, tweets, and movie info.
 * Grab a song from Spotify by enter this command in terminal
   ```
-  node liri.js 'spotify-this-song' 'the song name'
+  node liri.js spotify-this-song 'the song name'
   ```
 * Get a list of 20 tweets from twitter
   ```
-  node liri.js 'my-tweets'
+  node liri.js my-tweets
   ```
 * Get movie information
   ```
-  node liri.js 'movie-this' 'movie name'
+  node liri.js movie-this 'movie name'
+  ```
+* Read file
+  ```
+  node liri.js read-file
   ```
 
 ## Running ```node liri.js ```

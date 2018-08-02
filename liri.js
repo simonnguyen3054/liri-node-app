@@ -99,29 +99,28 @@ if (command === 'my-tweets') {
       }
     );
   }
-}
-
-//part 4
-fs.readFile('random.txt', 'utf8', function(error, data) {
-  if (error) {
-    return console.log(error);
-  }
-
-  var dataArr = data.split(',');
-
-  spotify.search({ type: 'track', query: dataArr[1] }, function(err, data) {
-    if (err) {
-      return console.log('Error occurred: ' + err);
+} else if (command === 'read-file') {
+  fs.readFile('random.txt', 'utf8', function(error, data) {
+    if (error) {
+      return console.log(error);
     }
 
-    var artist = data.tracks.items[0].artists[0].name;
-    var songname = data.tracks.items[0].name;
-    var songPreview = data.tracks.items[0].external_urls.spotify;
-    var album = data.tracks.items[0].album.name;
+    var dataArr = data.split(',');
 
-    console.log('Artist: ', artist);
-    console.log('Song: ', songname);
-    console.log('Song Preview: ', songPreview);
-    console.log('Album: ', album);
+    spotify.search({ type: 'track', query: dataArr[1] }, function(err, data) {
+      if (err) {
+        return console.log('Error occurred: ' + err);
+      }
+
+      var artist = data.tracks.items[0].artists[0].name;
+      var songname = data.tracks.items[0].name;
+      var songPreview = data.tracks.items[0].external_urls.spotify;
+      var album = data.tracks.items[0].album.name;
+
+      console.log('Artist: ', artist);
+      console.log('Song: ', songname);
+      console.log('Song Preview: ', songPreview);
+      console.log('Album: ', album);
+    });
   });
-});
+}
